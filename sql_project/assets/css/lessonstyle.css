@@ -1,0 +1,409 @@
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 20;
+}
+
+.progress_container {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.progress_container .progress_bar {
+    height: 8px;
+    border-radius: 5px;
+    background-color: lightgrey;
+    transition: all 0.5s ease-in-out;
+}
+
+.progress_container .progress_bar.active {
+    border: 1px solid white;
+    outline: 1px solid #333;
+}
+
+.progress_container .progress_bar:nth-child(1) {
+    width: 100px;
+}
+
+.progress_container .progress_bar:nth-child(2) {
+    width: 200px;
+}
+
+.progress_container .progress_bar:nth-child(3) {
+    width: 100px;
+}
+
+.progress_container .progress_bar .progress {
+    width: 0;
+    height: 100%;
+    border-radius: 5px;
+    background-image: radial-gradient(circle 897px at 9% 80.3%, rgba(55, 60, 245, 1) 0%, rgba(234, 161, 15, 0.90) 100.2%);
+    transition: all 0.5s ease-in-out;
+}
+
+main {
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+    max-width: none;
+}
+
+section {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 100%;
+    opacity: 0;
+    max-width: 1000px;
+    transform: translate(-50%, 0);
+    padding-top: 150px;
+    box-sizing: border-box;
+    transition: all 0.5s ease-in-out;
+}
+
+section.active {
+    box-sizing: border-box;
+    left: 50%;
+    opacity: 1;
+}
+
+section:nth-child(1) {
+    width: 500px;
+}
+
+section .title {
+    font-size: 35px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+section .desc {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+section .btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+section .btn:hover {
+    background-color: #444;
+}
+
+section:nth-child(2) {
+    max-width: 500px;
+}
+
+.part.hidden {
+    position: fixed;
+    top: -100%;
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.part {
+    margin-bottom: 50px;
+    padding-bottom: 100px;
+    opacity: 1;
+    pointer-events: all;
+    transition: all 0.5s ease-in-out;
+    height: fit-content;
+}
+
+h1 {
+    font-size: 35px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.info {
+    padding: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    font-style: italic;
+}
+
+.tool_box {
+    width: 100%;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.tool_box .header {
+    background: #ededed;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.tool_box .header .order {
+    margin: 0;
+    font-weight: 800;
+}
+
+.body.ecommerce {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.body.ecommerce .product {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    border-top: 1px solid #ededed;
+}
+
+.body.ecommerce .product .product_name {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.body.ecommerce .product .product_price {
+    font-size: 16px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.body.ecommerce .product .product_desc {
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    margin: 0;
+}
+
+.body.ecommerce .product img {
+    width: 100px;
+}
+
+.body.ecommerce .product .btn {
+    width: 17.5px;
+    height: 17.5px;
+    margin: 0;
+    padding: 2.5px;
+    border-radius: 20px;
+}
+
+.body.ecommerce .product .btn img {
+    width: 15px;
+    height: 15px;
+    margin: 0;
+}
+
+.body.ecommerce .cart {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ededed;
+}
+
+.body.ecommerce .cart p {
+    text-align: center;
+    margin: 0;
+    font-style: italic;
+}
+
+.possibilities {
+    display: flex;
+    gap: 10px;
+    margin: 30px 0 30px 0;
+}
+
+.possibilities label {
+    width: fit-content;
+    padding: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.possibilities input[type="radio"] {
+    display: none;
+}
+
+.possibilities input[type="radio"]:checked+label {
+    border: 1px solid black;
+}
+
+.extensions {
+    background: #ededed;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 2px;
+    border-radius: 3px;
+}
+
+.tool_box.question .body {
+    display: flex;
+    flex-direction: column;
+}
+
+.tool_box.question .body input[type="radio"] {
+    display: none;
+}
+
+.tool_box.question .body input[type="radio"]+label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.tool_box.question .body input[type="radio"]+label div:nth-child(1) {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid lightgrey;
+    transition: all 0.3s ease-in-out;
+}
+
+.tool_box.question .body input[type="radio"]:checked+label div:nth-child(1) {
+    background-color: #333;
+    border: 1px solid #333;
+}
+
+.tool_box.question .explanation .btn {
+    width: 100px;
+    margin-left: auto;
+    background: white;
+    border: 1px solid #333;
+    color: #333;
+}
+
+.tool_box.question .explanation .btn:hover {
+    background: white;
+    border: 1px solid black;
+}
+
+.tool_box.question .explanation,
+.tool_box.question .body {
+    transition: all 0.3s ease-in-out;
+}
+
+.tool_box.question .explanation.hidden {
+    opacity: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.tool_box.question .body.hidden {
+    opacity: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+section:nth-child(3) {
+    width: 500px;
+}
+
+.tool_box.sql {
+    background: black;
+}
+
+.tool_box.sql .header {
+    background: #333;
+    color: white;
+}
+
+.sql_editor {
+    position: relative;
+}
+
+.tool_box.sql .body textarea,
+.tool_box.sql .body #sql_output {
+    width: 100%;
+    height: 150px;
+    color: white;
+    border: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 20px;
+    resize: none;
+    outline: none;
+    background: transparent;
+}
+
+.tool_box.sql .body textarea {
+    color: black;
+    caret-color: white;
+}
+
+.tool_box.sql .body textarea::selection {
+    background: rgb(78, 114, 190);
+    color: rgb(79, 114, 190);
+}
+
+.tool_box.sql .body #sql_output {
+    position: absolute;
+    top: 0;
+    color: white;
+    pointer-events: none;
+}
+
+.tool_box.sql .body .btn {
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+    width: 100px;
+    margin-left: auto;
+}
+
+.tool_box.sql .body .btn:hover {
+    background: rgb(17, 17, 17);
+}
+
+.keyword {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
+    color: #7777ff;
+}
+
+.comment {
+    font-family: 'Courier New', Courier, monospace;
+    color: green;
+}
+
+.operator {
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.string {
+    font-family: 'Courier New', Courier, monospace;
+    color: #df805c;
+}

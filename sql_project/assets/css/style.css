@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;0,9..40,1000;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900;1,9..40,1000&display=swap');
+html,
+body {
+    height: 100%;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+* {
+    font-family: 'DM Sans', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: radial-gradient( circle 897px at 9% 80.3%, rgba(137, 55, 245, 0.1) 0%, rgba(129, 92, 16, 0.1) 100.2%);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    scroll-behavior: smooth;
+}
+
+.lesson_info_box {
+    padding: 20px;
+    position: sticky;
+    top: 20px;
+    border: 1px solid #333;
+    background: white;
+    border-radius: 5px;
+    max-width: 425px;
+    height: fit-content;
+}
+
+.lesson_info_box .img {
+    width: 75px;
+    height: 75px;
+}
+
+.lesson_info_box .main_title {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.lesson_info_box .desc {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.lesson_info_box .progress_box {
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background-color: lightgrey;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.lesson_info_box .progress_box .progress_bar {
+    width: 5%;
+    height: 100%;
+    border-radius: 5px;
+    background-image: radial-gradient( circle 897px at 9% 80.3%, rgba(55, 60, 245, 1) 0%, rgba(234, 161, 15, 0.90) 100.2%);
+}
+
+.lesson_info_box .lenght_box {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.lesson_info_box .lenght_box .icon {
+    width: 20px;
+    height: 20px;
+}
+
+.lesson_info_box .lenght_box .txt {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.lesson_path {
+    width: 100%;
+}
+
+.lesson_path .lesson_path_box {
+    width: 350px;
+    height: 750px;
+    margin: auto;
+    position: relative;
+}
+
+:root {
+    --lesson-color: lightgrey;
+}
+
+.lesson_path .lesson.done {
+    --lesson-color: rgb(78, 2, 78);
+}
+
+.lesson_path .lesson {
+    width: 67.5px;
+    height: 67.5px;
+    background-color: var(--lesson-color);
+    border-radius: 10px;
+    transform: rotateX(55deg) rotateZ(45deg) translate(-50%, -50%);
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 1);
+    position: absolute;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    z-index: 5;
+}
+
+.lesson_path .lesson .nbr {
+    position: absolute;
+    font-size: 30px;
+    font-weight: 800;
+    color: white;
+    top: 45%;
+    left: 45%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.lesson_path .lesson:hover {
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 1);
+}
+
+.lesson_path .lesson:nth-child(1) {
+    top: 50px;
+    left: 50%;
+}
+
+.lesson_path .lesson:nth-child(2) {
+    top: 250px;
+    left: 25%;
+}
+
+.lesson_path .lesson:nth-child(3) {
+    top: 450px;
+    left: 50%;
+}
+
+.lesson_path .lesson_infos {
+    position: absolute;
+    width: 300px;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    z-index: 10;
+    transform: translate(-50%, -1000px);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.lesson_path .lesson_infos .txt {
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    color: #333;
+}
+
+.lesson_path .lesson_infos .btn {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgb(78, 2, 78);
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 15px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.lesson_path .lesson_infos .btn:hover {
+    background-color: rgb(78, 2, 78, 0.8);
+}
+
+.lesson_path .lesson_infos.active {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
+
+.lesson_path .lesson_infos#lesson_1.active {
+    top: 160px;
+    left: calc(50% + 30px);
+}
+
+.lesson_path .lesson_infos#lesson_2.active {
+    top: 360px;
+    left: calc(25% + 30px);
+}
+
+.lesson_path .lesson_infos#lesson_3.active {
+    top: 560px;
+    left: calc(50% + 30px);
+}
+
+:root {
+    --path-line: dashed;
+}
+
+.lesson_path .path1.active,
+.lesson_path .path2.active {
+    --path-line: solid;
+}
+
+.lesson_path .path1 {
+    border-top: 3px var(--path-line) rgb(78, 2, 78);
+    border-left: 3px var(--path-line) rgb(78, 2, 78);
+    border-top-left-radius: 20px;
+    position: absolute;
+    top: 55px;
+    left: 115px;
+    width: 56px;
+    height: 200px;
+    z-index: 4;
+}
+
+.lesson_path .path2 {
+    border-top: 3px var(--path-line) rgb(78, 2, 78);
+    border-right: 3px var(--path-line) rgb(78, 2, 78);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position: absolute;
+    top: 258px;
+    left: 140px;
+    width: 145px;
+    height: 198px;
+    z-index: 4;
+}
+
+.path2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 40px;
+    border-bottom: 3px var(--path-line) rgb(78, 2, 78);
+    border-bottom-right-radius: 20px;
+    width: 105px;
+    height: 198px;
+}

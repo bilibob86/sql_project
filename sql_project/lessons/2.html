@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partie 2 - Gérer une base de donnée</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/lessonstyle.css">
+</head>
+
+<body>
+    <header>
+        <div class="close" onclick="window.location.href = '../'">
+            <img src="../assets/icons/icons8-effacer-30.png" alt="close">
+        </div>
+        <div class="progress_container">
+            <div class="progress_bar active">
+                <div class="progress"></div>
+            </div>
+            <div class="progress_bar">
+                <div class="progress"></div>
+            </div>
+            <div class="progress_bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+        <div></div>
+    </header>
+    <main>
+        <section class="active">
+            <img src="../assets/img/levels-order-completed-with-robotic-arm-and-package.png" class="img">
+            <div class="title">Comment créer une base de donnée ?</div>
+            <div class="desc">Maintenant que nous savons ce qu'est une base de donnée, apprenons à en créer une !</div>
+            <div class="btn" onclick="nextSection(1)">Commencer</div>
+        </section>
+        <section class="">
+            <div class="part">
+                <h1>La création</h1>
+                <p>Avant d'encoder notre base de donnée, nous devons tout d'abord créer une structure viable et coordonnée.</p>
+                <p>Dans le but de concevoir notre site de e-commerce, nous devons créer plusieurs tables :</p>
+                <ul>
+                    <li>Une table pour les produits</li>
+                    <li>Une table pour les utilisateurs</li>
+                    <li>Une table pour le panier</li>
+                    <li>Une table pour les commandes</li>
+                </ul>
+                <img src="../assets/img/tables.png" class="img">
+                <p>Quel language est necessaire pour créer une base de donnée ?</p>
+                <div class="possibilities">
+                    <input type="radio" name="answer_1" id="answer-1" onclick="nextPart()">
+                    <label for="answer-1">SQL</label>
+                    <input type="radio" name="answer_1" id="answer-2" onclick="nextPart()">
+                    <label for="answer-2">CSV</label>
+                    <input type="radio" name="answer_1" id="answer-3" onclick="nextPart()">
+                    <label for="answer-3">Javascript</label>
+                </div>
+            </div>
+            <div class="part hidden" id="2">
+                <div class="tool_box sql">
+                    <div class="header">
+                        <div class="order">Exécutez la ligne suivante</div>
+                    </div>
+                    <div class="body">
+                        <div class="sql_editor">
+                            <textarea id="sql_input" rows="10" cols="50" placeholder="Saisissez votre code SQL ici..." oninput="embellish(this)"></textarea>
+                            <div id="sql_output" class="output"></div>
+                        </div>
+                        <div class="btn">
+                            Exécuter
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="">
+            <img src="../assets/img/levels-order-completed-with-robotic-arm-and-package.png" class="img">
+            <div class="title">En somme ...</div>
+            <div class="desc">Les bases de données nous entourent et permette le bon fonctionnement d'internet.</div>
+            <div class="desc">Il n'est pas compliqué de les comprendre, et l'on peut aisement les visuasliser sous forme de tableaux.</div>
+            <div class="btn" onclick="finishLesson(2)">Terminer</div>
+        </section>
+    </main>
+    <script src="../assets/js/lessonroot.js"></script>
+    <script src="../assets/js/questions.js"></script>
+    <script src="../assets/js/sql_editor.js"></script>
+</body>
+
+</html>

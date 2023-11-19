@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partie 1 - Gérer une base de donnée</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/lessonstyle.css">
+</head>
+
+<body>
+    <header>
+        <div class="close" onclick="window.location.href = '../'">
+            <img src="../assets/icons/icons8-effacer-30.png" alt="close">
+        </div>
+        <div class="progress_container">
+            <div class="progress_bar active">
+                <div class="progress"></div>
+            </div>
+            <div class="progress_bar">
+                <div class="progress"></div>
+            </div>
+            <div class="progress_bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+        <div></div>
+    </header>
+    <main>
+        <section class="active">
+            <img src="../assets/img/levels-app-development-with-ux-slash-ui-design.png" class="img">
+            <div class="title">Qu'est ce qu'une base de donnée et où l'utilise-t-on ?</div>
+            <div class="desc">Plongez dans le monde des bases de données, omniprésentes dans nos vies.</div>
+            <div class="btn" onclick="nextSection(1)">Commencer</div>
+        </section>
+        <section class="">
+            <div class="part">
+                <h1>Les bases</h1>
+                <p>Lorsque vous naviguez sur le web, les bases de données sont partout et ce, sans que vous vous en rendiez compte.</p>
+                <p>
+                    Prenons l'exemple d'un site de e-commerce ci-dessous :
+                </p>
+                <div class="tool_box site_simulation">
+                    <div class="header">
+                        <p class="order">
+                            Ajoutez un produit au panier
+                        </p>
+                    </div>
+                    <div class="body ecommerce">
+                        <div class="product">
+                            <img src="../assets/img/business-3d-side-view-of-red-mug.png" alt="ecommerce">
+                            <div class="product_infos">
+                                <div class="product_name">Magnifique mug</div>
+                                <div class="product_desc">Ce mug rouge conviendra à quiconque qui l'achetera !</div>
+                                <div class="product_price">10 €</div>
+                                <div class="btn" onclick="addToCart()">
+                                    <img src="../assets/icons/icons8-caddie-30.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product">
+                            <img src="../assets/img/business-3d-lit-light-bulb.png" alt="ecommerce">
+                            <div class="product_infos">
+                                <div class="product_name">Ampoule performante</div>
+                                <div class="product_desc">Des problèmes d'éclairage ? Cette ampoule semble être parfaite pour vous !</div>
+                                <div class="product_price">10 €</div>
+                                <div class="btn" onclick="addToCart()">
+                                    <img src="../assets/icons/icons8-caddie-30.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart" data-qt="0">
+                            <p>Vous n'avez rien dans le panier</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="part hidden" id="2">
+                <p>Ici, lorsque vous cliquez sur le bouton pour ajouter au panier, les données relatives au produit sont stockée dans une table nommées "panier".</p>
+                <p class="info">Une base donnée est composée de table</p>
+                <p>Dans quel format est enregistré une table ?</p>
+                <div class="possibilities">
+                    <input type="radio" name="answer_1" id="answer-1" onclick="nextPart()">
+                    <label for="answer-1">.sql</label>
+                    <input type="radio" name="answer_1" id="answer-2" onclick="nextPart()">
+                    <label for="answer-2">.xls</label>
+                    <input type="radio" name="answer_1" id="answer-3" onclick="nextPart()">
+                    <label for="answer-3">.html</label>
+                </div>
+            </div>
+            <div class="part hidden" id="3">
+                <p><span class="extensions">sql</span> et <span class="extensions">xls</span> étaient les bonnes réponses. En effect, une table est un peu comme un tableau excel.</p>
+                <p>Elle est composée de :</p>
+                <ul>
+                    <li>Colonnes</li>
+                    <li>Lignes</li>
+                    <li>Cellules</li>
+                </ul>
+                <p>Voici un exemple pour notre table "panier" :</p>
+                <img src="../assets/img/table.png" alt="table">
+                <p>Quel colonne permet d'identifier le produit ?</p>
+                <div class="possibilities">
+                    <input type="radio" name="answer_2" id="answer_2-1" onclick="nextPart()">
+                    <label for="answer_2-1">id</label>
+                    <input type="radio" name="answer_2" id="answer_2-2" onclick="nextPart()">
+                    <label for="answer_2-2">user_id</label>
+                    <input type="radio" name="answer_2" id="answer_2-3" onclick="nextPart()">
+                    <label for="answer_2-3">pd_id</label>
+                </div>
+            </div>
+            <div class="part hidden" id="4">
+                <p>C'est en effet la colonne <span class="extensions">pd_id</span> qui permet l'identification du produit. Par aileur, cet élement permet de retrouver la produit dans une autre table (produits).</p>
+                <p>Il est temps maintenant d'introduire la notion de clef <strong>primaire</strong> et de clef <strong>etrangère</strong></p>
+                <div class="tool_box question" id="quest_1" data-answer="1">
+                    <div class="header">
+                        <div class="order">Quelle pourrait-être la clef primaire ici ?</div>
+                    </div>
+                    <div class="body" id="body_quest_1">
+                        <input type="radio" name="answer_3" id="answer_3-1" onclick="showExplanation('quest_1')">
+                        <label for="answer_3-1">
+                            <div class="radio"></div>
+                            <div class="txt">id</div>
+                        </label>
+                        <input type="radio" name="answer_3" id="answer_3-2" onclick="showExplanation('quest_1')">
+                        <label for="answer_3-2">
+                            <div class="radio"></div>
+                            <div class="txt">user_id</div>
+                        </label>
+                        <input type="radio" name="answer_3" id="answer_3-3" onclick="showExplanation('quest_1')">
+                        <label for="answer_3-3">
+                            <div class="radio"></div>
+                            <div class="txt">pd_id</div>
+                        </label>
+                    </div>
+                    <div class="explanation hidden" id="explanation_quest_1">
+                        <p>Une clef primaire est unique, contrairement à une clef extrangère qui peut ne pas l'être.</p>
+                        <p>Une clef extrangère provient d'une autre table où celle-ci est unique. Ainsi la clef <span class="extensions">user_id</span> est unique dans la table "utilisateur".</p>
+                        <div class="btn" onclick="hideExplanation('quest_1')">Suivant</div>
+                    </div>
+                </div>
+            </div>
+            <div class="part hidden" id="5">
+                <p>S'en est terminé, passons maintenant à la suite avec le section : "Comment construire une base de donnée ?"</p>
+                <div class="btn" onclick="nextSection(2)">Suivant</div>
+            </div>
+        </section>
+        <section class="">
+            <img src="../assets/img/levels-app-development-with-ux-slash-ui-design.png" class="img">
+            <div class="title">En somme ...</div>
+            <div class="desc">Les bases de données nous entourent et permette le bon fonctionnement d'internet.</div>
+            <div class="desc">Il n'est pas compliqué de les comprendre, et l'on peut aisement les visuasliser sous forme de tableaux.</div>
+            <div class="btn" onclick="finishLesson(1)">Terminer</div>
+        </section>
+    </main>
+    <script src="../assets/js/lessonroot.js"></script>
+    <script src="../assets/js/lesson_ecommerce_website.js"></script>
+    <script src="../assets/js/questions.js"></script>
+</body>
+
+</html>

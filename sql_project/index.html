@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gérer une base de donnée</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <main>
+        <div class="lesson_info_box">
+            <img src="assets/img/levels-cloud-storage-database-and-hardware.png" class="img">
+            <p class="main_title">Comment gérer une base de donnée ?</p>
+            <div class="progress_box">
+                <div class="progress_bar"></div>
+            </div>
+            <div class="desc">Plongez dans le monde des bases de données, omniprésentes dans nos vies.</div>
+            <div class="lenght_box">
+                <img src="assets/icons/icons8-couche-64.png" class="icon">
+                <div class="txt">3 leçons</div>
+            </div>
+        </div>
+        <div class="lesson_path">
+            <div class="lesson_path_box">
+                <div class="lesson done" onclick="openLesson(1)">
+                    <div class="nbr">1</div>
+                </div>
+                <div class="lesson" onclick="openLesson(2)">
+                    <div class="nbr">2</div>
+                </div>
+                <div class="lesson" onclick="openLesson(3)">
+                    <div class="nbr">3</div>
+                </div>
+                <div class="path1"></div>
+                <div class="path2"></div>
+                <div class="lesson_infos" id="lesson_1">
+                    <div class="txt">Qu'est ce qu'une base de donnée et l'utilise-t-on ?</div>
+                    <div class="btn" onclick="redirectLesson(1)">Commencer</div>
+                </div>
+                <div class="lesson_infos" id="lesson_2">
+                    <div class="txt">Comment construire une base de donnée ?</div>
+                    <div class="btn" onclick="redirectLesson(2)">Commencer</div>
+                </div>
+                <div class="lesson_infos" id="lesson_3">
+                    <div class="txt">Comment gérer une base de donnée ?</div>
+                    <div class="btn" onclick="redirectLesson(3)">Commencer</div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="assets/js/root.js"></script>
+</body>
+
+</html>
