@@ -97,7 +97,7 @@ main {
 
 .lesson_path .lesson_path_box {
     width: 350px;
-    height: 750px;
+    height: 100%;
     margin: auto;
     position: relative;
 }
