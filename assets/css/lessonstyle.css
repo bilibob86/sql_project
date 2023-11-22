@@ -408,3 +408,8 @@ section:nth-child(3) {
     font-family: 'Courier New', Courier, monospace;
     color: #df805c;
 }
+
+.number {
+    font-family: 'Courier New', Courier, monospace;
+    color: green;
+}

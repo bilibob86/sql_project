@@ -13,6 +13,7 @@ const progressBars = [
 ]
 
 function nextSection() {
+    document.getElementsByTagName('main')[0].scrollTo(0, 0)
     for (let i = 0; i < sections.length; i++) {
         if (sections[i].classList.contains('active')) {
             sections[i].classList.remove('active')
@@ -25,7 +26,6 @@ function nextSection() {
                 for (let j = 0; j < document.getElementsByClassName("part").length; j++) {
                     document.getElementsByClassName("part")[j].classList.add("hidden");
                 }
-                window.scrollTo(0, 0);
             }
             break
         }

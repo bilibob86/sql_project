@@ -57,16 +57,17 @@
                 </div>
             </div>
             <div class="part hidden" id="2">
-                <div class="tool_box sql">
+                <div class="tool_box sql" id="sql_1">
                     <div class="header">
                         <div class="order">Exécutez la ligne suivante</div>
                     </div>
                     <div class="body">
                         <div class="sql_editor">
-                            <textarea id="sql_input" rows="10" cols="50" placeholder="Saisissez votre code SQL ici..." oninput="embellish(this)"></textarea>
-                            <div id="sql_output" class="output"></div>
+                            <textarea id="sql_input" rows="10" cols="50" placeholder="Saisissez votre code SQL ici..." oninput="embellish(this)">CREATE TABLE utilisateurs</textarea>
+                            <div id="sql_output" class="output"><span class="keyword">CREATE</span><span class="string"> </span><span class="keyword">TABLE</span><span class="string"> </span><span class="string">utilisateurs</span></div>
                         </div>
-                        <div class="btn">
+                        <!--CREATE TABLE `utilisateurs` (`id` int(11) NOT NULL AUTO_INCREMENT,`nom` varchar(100) NOT NULL,`email` varchar(100) NOT NULL,`pass` varchar(500) NOT NULL,`anniversaire` date NOT NULL,`creation` date NOT NULL,PRIMARY KEY (`id`));-->
+                        <div class="btn" onclick="firstStep('sql_1')">
                             Exécuter
                         </div>
                     </div>
@@ -84,6 +85,7 @@
     <script src="../assets/js/lessonroot.js"></script>
     <script src="../assets/js/questions.js"></script>
     <script src="../assets/js/sql_editor.js"></script>
+    <script src="../assets/js/sql_exe.js"></script>
 </body>
 
 </html>
