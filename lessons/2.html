@@ -57,28 +57,107 @@
                 </div>
             </div>
             <div class="part hidden" id="2">
+                <p><span class="extensions">SQL</span> est la bonne réponse et maintenant que nous avons une structure pour notre base de donnée, commençons sa création.</p>
                 <div class="tool_box sql" id="sql_1">
                     <div class="header">
                         <div class="order">Exécutez la ligne suivante</div>
                     </div>
                     <div class="body">
                         <div class="sql_editor">
-                            <textarea id="sql_input" rows="10" cols="50" placeholder="Saisissez votre code SQL ici..." oninput="embellish(this)">CREATE TABLE utilisateurs</textarea>
-                            <div id="sql_output" class="output"><span class="keyword">CREATE</span><span class="string"> </span><span class="keyword">TABLE</span><span class="string"> </span><span class="string">utilisateurs</span></div>
+                            <textarea class="sql_input" rows="10" cols="50" placeholder="Saisissez votre code SQL ici..." oninput="embellish(this)">CREATE TABLE utilisateurs (id INT, nom VARCHAR(100))</textarea>
+                            <div class="sql_output" class="output"><span class="keyword">CREATE</span><span class="string"> </span><span class="keyword">TABLE</span><span class="string"> </span><span class="string">utilisateurs</span><span class="operator"> (</span><span class="string">id</span>
+                                <span class="string"> </span><span class="string">INT</span><span class="operator">, </span><span class="string">nom</span><span class="string"> </span><span class="string">VARCHAR</span><span class="operator">(</span>
+                                <span class="number">100</span><span class="operator">))</span>
+                            </div>
                         </div>
-                        <!--CREATE TABLE `utilisateurs` (`id` int(11) NOT NULL AUTO_INCREMENT,`nom` varchar(100) NOT NULL,`email` varchar(100) NOT NULL,`pass` varchar(500) NOT NULL,`anniversaire` date NOT NULL,`creation` date NOT NULL,PRIMARY KEY (`id`));-->
                         <div class="btn" onclick="firstStep('sql_1')">
                             Exécuter
                         </div>
+                        <div class="output_error" class="errors"></div>
                     </div>
                 </div>
+            </div>
+            <div class="part hidden" id="3">
+                <p>Bravo, vous venez d'exécuter votre première requête SQL. Cette dernière a crée une table.</p>
+                <p>La voici : </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Champ</th>
+                            <th>Type</th>
+                            <th>Null</th>
+                            <th>Clé</th>
+                            <th>Défaut</th>
+                            <th>Extra</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_structure"></tbody>
+                </table>
+                <p>Cependant cette dernière ne semble pas adapté à nos besoin, que pourrait-il manquer ?</p>
+                <div class="possibilities">
+                    <input type="radio" name="answer_2" id="answer_2-1" onclick="nextPart()">
+                    <label for="answer_2-1">Clef primaire</label>
+                    <input type="radio" name="answer_2" id="answer_2-2" onclick="nextPart()">
+                    <label for="answer_2-2">Incrémentation auto</label>
+                    <input type="radio" name="answer_2" id="answer_2-3" onclick="nextPart()">
+                    <label for="answer_2-3">Nombre de caractère</label>
+                </div>
+            </div>
+            <div class="part hidden" id="4">
+                <p>La clef primaire est la bonne réponse, en effet, chaque table doit avoir une clef primaire pour différencier chaque ligne.</p>
+                <p>Mais l'incrémentation auto est aussi une bonne réponse, elle permet d'incrémenter automatiquement la clef primaire.</p>
+                <p>Maintenant, à vous de jouer pour créer toute la table !</p>
+                <p>Elle doit contenir les élement suivant : </p>
+                <ul>
+                    <li>Un id en clef primaire</li>
+                    <li>Un nom</li>
+                    <li>Une date d'anniversaire</li>
+                    <li>Un email</li>
+                    <li>Un mot de passe</li>
+                    <li>La date de création du compte</li>
+                </ul>
+                <div class="tool_box sql" id="sql_2">
+                    <div class="header">
+                        <div class="order">Exécutez la ligne suivante</div>
+                    </div>
+                    <div class="body">
+                        <div class="sql_editor">
+                            <textarea class="sql_input" rows="10" cols="50" placeholder="Saisissez votre code SQL ici..." oninput="embellish(this)"></textarea>
+                            <div class="sql_output" class="output"></div>
+                        </div>
+                    </div>
+                    <div class="btn" onclick="secondStep('sql_2')">
+                        Exécuter
+                    </div>
+                    <div class="output_error" class="errors"></div>
+                </div>
+            </div>
+            </div>
+            <div class="part hidden" id="5">
+                <p>Bravo, vous venez de créer votre première table tout seul !</p>
+                <p>La voici : </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Champ</th>
+                            <th>Type</th>
+                            <th>Null</th>
+                            <th>Clé</th>
+                            <th>Défaut</th>
+                            <th>Extra</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_structure_2"></tbody>
+                </table>
+                <p>Maintenant, vous pouvez continuer notre cours et savoir comment intégrer des données dans cette base de donnée !</p>
+                <div class="btn" onclick="nextSection(2)">Continuer</div>
             </div>
         </section>
         <section class="">
             <img src="../assets/img/levels-order-completed-with-robotic-arm-and-package.png" class="img">
             <div class="title">En somme ...</div>
-            <div class="desc">Les bases de données nous entourent et permette le bon fonctionnement d'internet.</div>
-            <div class="desc">Il n'est pas compliqué de les comprendre, et l'on peut aisement les visuasliser sous forme de tableaux.</div>
+            <div class="desc"></div>
+            <div class="desc"></div>
             <div class="btn" onclick="finishLesson(2)">Terminer</div>
         </section>
     </main>

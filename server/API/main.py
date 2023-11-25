@@ -1,5 +1,9 @@
+from email.iterators import _structure
+from turtle import st
+from colorama import Cursor
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
+from collections.abc import Iterable
 import mysql.connector
 from mysql.connector import Error
 
@@ -18,12 +22,6 @@ CORS(app)
 
 def root():
     try:
-        conn = mysql.connector.connect(
-            host='localhost',
-            database='sql_project',
-            user='root',
-            password=''
-        )
         # Check if database is empty 
         if conn.is_connected():
             print('Connected to MySQL database')
@@ -32,7 +30,7 @@ def root():
             tables = cursor.fetchall()
             if len(tables) != 0:
                 for table in tables:
-                    cursor.execute("DROP TABLE " + table[0])
+                    cursor.execute("DROP TABLE " + str(table[0]))
 
         return jsonify({
             "code": 200,
@@ -51,12 +49,25 @@ def execute():
     # Return POST request data
     content_type = request.headers.get('Content-Type')
     if (content_type == 'application/json'):
-        json = request.json
-        return jsonify({
-            "code": 200,
-            "message": "Success",
-            "data": json
-        })
+        sql = request.json
+        cursor = conn.cursor()
+        try:
+            cursor.execute(str(sql)) # Creation of table
+            structure = cursor.description 
+            return jsonify({
+                "code": 200,
+                "message": "Query executed successfully",
+                "result": [
+                    structure,
+                    cursor.fetchall()
+                ]
+            })
+        except Error as e:
+            return jsonify({
+                "code": 400,
+                "message": "Bad request",
+                "result": str(e)
+            })
     else:
         return jsonify({
             "code": 400,
