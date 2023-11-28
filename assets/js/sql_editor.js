@@ -1,7 +1,7 @@
 function embellish(el) {
     const keywords = ['SELECT', 'FROM', 'WHERE', 'JOIN', 'ON', 'GROUP',
         'BY', 'ORDER', 'INSERT', 'INTO', 'VALUES', 'UPDATE', 'SET', 'DELETE', 'FROM', 'CREATE', 'TABLE',
-        'PRIMARY', 'KEY', 'varchar', 'int', 'NOT', 'NULL'
+        'PRIMARY', 'KEY', 'VARCHAR', 'INT', 'NOT', 'NULL', 'DEFAULT', 'DATETIME'
     ];
     const commentPattern = /--.*|\/\*[\s\S]*?\*\//g; // Matches SQL comments
 

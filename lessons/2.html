@@ -64,7 +64,7 @@
                     </div>
                     <div class="body">
                         <div class="sql_editor">
-                            <textarea class="sql_input" rows="10" cols="50" placeholder="Saisissez votre code SQL ici..." oninput="embellish(this)">CREATE TABLE utilisateurs (id INT, nom VARCHAR(100))</textarea>
+                            <textarea class="sql_input" rows="10" cols="50" placeholder="Saisissez votre code SQL ici..." oninput="embellish(this)" spellcheck="false">CREATE TABLE utilisateurs (id INT, nom VARCHAR(100))</textarea>
                             <div class="sql_output" class="output"><span class="keyword">CREATE</span><span class="string"> </span><span class="keyword">TABLE</span><span class="string"> </span><span class="string">utilisateurs</span><span class="operator"> (</span><span class="string">id</span>
                                 <span class="string"> </span><span class="string">INT</span><span class="operator">, </span><span class="string">nom</span><span class="string"> </span><span class="string">VARCHAR</span><span class="operator">(</span>
                                 <span class="number">100</span><span class="operator">))</span>
@@ -73,7 +73,7 @@
                         <div class="btn" onclick="firstStep('sql_1')">
                             Exécuter
                         </div>
-                        <div class="output_error" class="errors"></div>
+                        <div class="output_error errors"></div>
                     </div>
                 </div>
             </div>
@@ -109,12 +109,11 @@
                 <p>Maintenant, à vous de jouer pour créer toute la table !</p>
                 <p>Elle doit contenir les élement suivant : </p>
                 <ul>
-                    <li>Un id en clef primaire</li>
+                    <li>Un id (avec les attributs <span class="extensions">PRIMARY KEY</span> et <span class="extensions">auto_increment)</span></li>
                     <li>Un nom</li>
                     <li>Une date d'anniversaire</li>
                     <li>Un email</li>
                     <li>Un mot de passe</li>
-                    <li>La date de création du compte</li>
                 </ul>
                 <div class="tool_box sql" id="sql_2">
                     <div class="header">
@@ -122,14 +121,17 @@
                     </div>
                     <div class="body">
                         <div class="sql_editor">
-                            <textarea class="sql_input" rows="10" cols="50" placeholder="Saisissez votre code SQL ici..." oninput="embellish(this)"></textarea>
-                            <div class="sql_output" class="output"></div>
+                            <textarea class="sql_input" rows="10" cols="50" placeholder="Saisissez votre code SQL ici..." oninput="embellish(this)" spellcheck="false">CREATE TABLE utilisateurs ( [...], creation DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP)</textarea>
+                            <div class="sql_output"><span class="keyword">CREATE</span><span class="string"> </span><span class="keyword">TABLE</span><span class="string"> </span><span class="string">utilisateurs</span><span class="operator"> ( [...], </span><span class="string">creation</span>
+                                <span class="string"> </span><span class="string">DATETIME</span><span class="string"> </span><span class="keyword">NOT</span><span class="string"> </span><span class="keyword">NULL</span><span class="string"> </span>
+                                <span class="keyword">DEFAULT</span>
+                                <span class="string"> </span><span class="keyword">CURRENT_TIMESTAMP</span><span class="operator">)</span></div>
                         </div>
+                        <div class="btn" onclick="secondStep('sql_2')">
+                            Exécuter
+                        </div>
+                        <div class="output_error errors"></div>
                     </div>
-                    <div class="btn" onclick="secondStep('sql_2')">
-                        Exécuter
-                    </div>
-                    <div class="output_error" class="errors"></div>
                 </div>
             </div>
             </div>
