@@ -284,7 +284,7 @@ p {
     cursor: pointer;
 }
 
-.tool_box.question .body input[type="radio"]+label div:nth-child(1) {
+.tool_box.question .body input[type="radio"]+label .radio {
     width: 25px;
     height: 25px;
     border-radius: 50%;
@@ -292,7 +292,7 @@ p {
     transition: all 0.3s ease-in-out;
 }
 
-.tool_box.question .body input[type="radio"]:checked+label div:nth-child(1) {
+.tool_box.question .body input[type="radio"]:checked+label .radio {
     background-color: #333;
     border: 1px solid #333;
 }
@@ -418,6 +418,14 @@ section:nth-child(3) {
     margin-top: 20px;
     font-family: 'Courier New', Courier, monospace;
     color: #9b0000;
+}
+
+.code_container {
+    background-color: #200121;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 table {

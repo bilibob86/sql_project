@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partie 3 - Gérer une base de donnée</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/lessonstyle.css">
+</head>
+
+<body>
+    <header>
+        <div class="close" onclick="window.location.href = '../'">
+            <img src="../assets/icons/icons8-effacer-30.png" alt="close">
+        </div>
+        <div class="progress_container">
+            <div class="progress_bar active">
+                <div class="progress"></div>
+            </div>
+            <div class="progress_bar">
+                <div class="progress"></div>
+            </div>
+            <div class="progress_bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+        <div></div>
+    </header>
+    <main>
+        <section class="active">
+            <img src="../assets/img/levels-code-1.png" class="img">
+            <div class="title">Comment afficher une base de donnée ?</div>
+            <div class="desc">Voilà notre base de données gérée, il nous faut maintenant savoir comment afficher les données.</div>
+            <div class="btn" onclick="nextSection(1)">Commencer</div>
+        </section>
+        <section class="">
+            <div class="part">
+                <h1>L'extraction</h1>
+                <p>Pour afficher les données d'une base de données, il faut utiliser une requête SQL de type <span class="code">SELECT</span>.</p>
+                <p>Voici la requête permettant d'afficher tout les utilisateurs :</p>
+                <div class="tool_box sql" id="sql_5">
+                    <div class="header">
+                        <div class="order">Exécutez la ligne suivante</div>
+                    </div>
+                    <div class="body">
+                        <div class="sql_editor">
+                            <textarea class="sql_input" rows="10" cols="50" placeholder="SELECT * FROM utilisateurs" oninput="embellish(this)" spellcheck="false"></textarea>
+                            <div class="sql_output"></div>
+                        </div>
+                        <div class="btn" onclick="fifthStep('sql_5')">
+                            Exécuter
+                        </div>
+                        <div class="output_error errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="part hidden" id="2">
+                <p>Ainsi cette requête permet d'afficher toutes les lignes de votre table</p>
+                <p>La voici : </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>nom</th>
+                            <th>email</th>
+                            <th>mdp</th>
+                            <th>anniv</th>
+                            <th>date_creation</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_structure_1"></tbody>
+                </table>
+                <p>Maintenant, si vous voulez choisir une ligne précise de votre base de données vous pouvez utilisez une condition précise</p>
+                <p>Laquellle semble être la bonne ?</p>
+                <div class="possibilities">
+                    <input type="radio" name="answer_1" id="answer_1-1" onclick="nextPart()">
+                    <label for="answer_1-1">WHERE</label>
+                    <input type="radio" name="answer_1" id="answer_1-2" onclick="nextPart()">
+                    <label for="answer_1-2">HAVING</label>
+                    <input type="radio" name="answer_1" id="answer_1-3" onclick="nextPart()">
+                    <label for="answer_1-3">LIMIT</label>
+                </div>
+            </div>
+            <div class="part hidden" id="3">
+                <p><span class="extensions">WHERE</span> était la bonne réponse. En effet, cette condtiont s'applique bien à la requete <span class="extensions">SELECT</span></p>
+                <p>Revenons maintenant à notre si de e-commerce. Nous allons voir ensemble comment selectionner à la fois les commandes et les produits contenu.</p>
+                <div class="tool_box sql" id="sql_6">
+                    <div class="header">
+                        <div class="order">Exécutez la ligne suivante</div>
+                    </div>
+                    <div class="body">
+                        <div class="sql_editor">
+                            <textarea class="sql_input" rows="10" cols="50" placeholder="SQL" oninput="embellish(this)" spellcheck="false">SELECT com.id, prod.nom, prod.prix, cont.qt FROM contenu AS cont  JOIN commandes AS com ON com.id=cont.commande_id JOIN produits AS prod ON cont.produit_id=prod.id ORDER BY com.id</textarea>
+                            <div class="sql_output"><span class="keyword">SELECT</span><span class="string"> </span><span class="string">com</span><span class="operator">.</span><span class="string">id</span><span class="operator">, </span><span class="string">prod</span>
+                                <span class="operator">.</span><span class="string">nom</span><span class="operator">, </span><span class="string">prod</span><span class="operator">.</span><span class="string">prix</span><span class="operator">, </span>
+                                <span class="string">cont</span>
+                                <span class="operator">.</span><span class="string">qt</span><span class="string"> </span><span class="keyword">FROM</span><span class="string"> </span><span class="string">contenu</span><span class="string"> </span>
+                                <span class="string">AS</span>
+                                <span class="string"> </span><span class="string">cont</span><span class="string">  </span><span class="keyword">JOIN</span><span class="string"> </span><span class="string">commandes</span><span class="string"> </span>
+                                <span class="string">AS</span>
+                                <span class="string"> </span><span class="string">com</span><span class="string"> </span><span class="keyword">ON</span><span class="string"> </span><span class="string">com</span><span class="operator">.</span>
+                                <span class="string">id</span>
+                                <span class="operator">=</span><span class="string">cont</span><span class="operator">.</span><span class="string">commande_id</span><span class="string"> </span><span class="keyword">JOIN</span><span class="string"> </span>
+                                <span class="string">produits</span><span class="string"> </span><span class="string">AS</span><span class="string"> </span><span class="string">prod</span><span class="string"> </span><span class="keyword">ON</span>
+                                <span class="string"> </span><span class="string">cont</span><span class="operator">.</span><span class="string">produit_id</span><span class="operator">=</span><span class="string">prod</span><span class="operator">.</span>
+                                <span class="string">id</span><span class="string"> </span><span class="keyword">ORDER</span><span class="string"> </span><span class="keyword">BY</span><span class="string"> </span><span class="string">com</span>
+                                <span class="operator">.</span><span class="string">id</span></div>
+                        </div>
+                        <div class="btn" onclick="sixthStep('sql_6')">
+                            Exécuter
+                        </div>
+                        <div class="output_error errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="part hidden" id="4">
+                <p>Voici ce que cette requête renvoie :</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>nom_produit</th>
+                            <th>prix</th>
+                            <th>quantité</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_structure_2">
+
+                    </tbody>
+                </table>
+                <p>Avant de terminer ce cours, saviez vous qu'il est possible de compter le nombre d'utilisateurs en SQL.</p>
+                <p>Pour ce faire, nous pouvons utiliser les fonction <strong>d'aggrégation</strong>.</p>
+                <div class="tool_box question" id="quest_2" data-answer="1">
+                    <div class="header">
+                        <div class="order">Quelle pourrait être la bonne commande ici ?</div>
+                    </div>
+                    <div class="body" id="body_quest_2">
+                        <input type="radio" name="answer_2" id="answer_2-1" onclick="showExplanation('quest_2')">
+                        <label for="answer_2-1">
+                            <div class="radio"></div>
+                            <div class="txt"><div class="code_container"></div></div>
+                        </label>
+                        <input type="radio" name="answer_2" id="answer_2-2" onclick="showExplanation('quest_2')">
+                        <label for="answer_2-2">
+                            <div class="radio"></div>
+                            <div class="txt"><div class="code_container"></div></div>
+                        </label>
+                        <input type="radio" name="answer_2" id="answer_2-3" onclick="showExplanation('quest_2')">
+                        <label for="answer_2-3">
+                            <div class="radio"></div>
+                            <div class="txt"><div class="code_container"></div></div>
+                        </label>
+                    </div>
+                    <div class="explanation hidden" id="explanation_quest_2">
+                        <p>La bonne réponse était la deuxième</p>
+                        <div class="code_container"></div>
+                        <div class="btn" onclick="hideExplanation('quest_2')">Suivant</div>
+                    </div>
+                </div>
+            </div>
+            <div class="part hidden" id="5">
+                <p>Pour terminer ce parcours, revenons au tout début.</p>
+                <p>Nous vous avions présenté un très simple site de e-commerce. Maintenant, grâce à notre base de donnée, le voici fonctionnel.</p>
+                <div class="tool_box website">
+                    <div class="body">
+                        <div class="btn" onclick="window.location.href = '../website'">Accéder au site</div>
+                    </div>
+                </div>
+                <div class="btn" onclick="finishLesson(4)">Terminer</div>
+            </div>
+        </section>
+        <section class="">
+            <img src="../assets/img/levels-code-1.png" class="img">
+            <div class="title">En somme
+                <div>
+                    <div class="desc"></div>
+                    <div class="btn" onclick="finishLesson(4)">Terminer</div>
+        </section>
+    </main>
+    <script src="../assets/js/lessonroot.js"></script>
+    <script src="../assets/js/questions.js"></script>
+    <script src="../assets/js/sql_editor.js"></script>
+    <script src="../assets/js/sql_exe.js"></script>
+</body>
+
+</html>

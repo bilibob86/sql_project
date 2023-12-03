@@ -12,10 +12,25 @@ body {
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     background-image: radial-gradient( circle 897px at 9% 80.3%, rgba(137, 55, 245, 0.1) 0%, rgba(129, 92, 16, 0.1) 100.2%);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: grey;
+    border: 1px solid #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 main {
@@ -26,6 +41,9 @@ main {
     max-width: 1000px;
     margin: auto;
     scroll-behavior: smooth;
+    padding: 50px 50px 0 50px;
+    box-sizing: border-box;
+    height: 100%;
 }
 
 .lesson_info_box {
@@ -98,9 +116,10 @@ main {
 
 .lesson_path .lesson_path_box {
     width: 350px;
-    height: 100%;
+    height: 750px;
     margin: auto;
     position: relative;
+    padding-bottom: 150px;
 }
 
 :root {
@@ -150,6 +169,11 @@ main {
 
 .lesson_path .lesson:nth-child(3) {
     top: 450px;
+    left: 50%;
+}
+
+.lesson_path .lesson:nth-child(4) {
+    top: 650px;
     left: 50%;
 }
 
@@ -209,6 +233,11 @@ main {
     left: calc(50% + 30px);
 }
 
+.lesson_path .lesson_infos#lesson_4.active {
+    top: 760px;
+    left: calc(50% + 30px);
+}
+
 :root {
     --path-line: dashed;
 }
@@ -252,4 +281,18 @@ main {
     border-bottom-right-radius: 20px;
     width: 105px;
     height: 198px;
+}
+
+.lesson_path .path3 {
+    border-top: 3px var(--path-line) rgb(78, 2, 78);
+    border-left: 3px var(--path-line) rgb(78, 2, 78);
+    border-bottom: 3px var(--path-line) rgb(78, 2, 78);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    position: absolute;
+    top: 460px;
+    left: 80px;
+    width: 91px;
+    height: 200px;
+    z-index: 4;
 }

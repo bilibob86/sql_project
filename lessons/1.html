@@ -77,9 +77,9 @@
                 </div>
             </div>
             <div class="part hidden" id="2">
-                <p>Ici, lorsque vous cliquez sur le bouton pour ajouter au panier, les données relatives au produit sont stockée dans une table nommées "panier".</p>
-                <p class="info">Une base donnée est composée de table</p>
-                <p>Dans quel format est enregistré une table ?</p>
+                <p>Ici, lorsque vous cliquez sur le bouton pour ajouter au panier, les données relatives au produit sont stockées dans une table nommée "panier".</p>
+                <p class="info">Une base de données est composée de tables</p>
+                <p>Dans quel format est enregistrée une table ?</p>
                 <div class="possibilities">
                     <input type="radio" name="answer_1" id="answer-1" onclick="nextPart()">
                     <label for="answer-1">.sql</label>
@@ -90,7 +90,7 @@
                 </div>
             </div>
             <div class="part hidden" id="3">
-                <p><span class="extensions">sql</span> et <span class="extensions">xls</span> étaient les bonnes réponses. En effect, une table est un peu comme un tableau excel.</p>
+                <p><span class="extensions">sql</span> et <span class="extensions">xls</span> étaient les bonnes réponses. En effet, une table est un peu comme un tableau Excel.</p>
                 <p>Elle est composée de :</p>
                 <ul>
                     <li>Colonnes</li>
@@ -99,7 +99,7 @@
                 </ul>
                 <p>Voici un exemple pour notre table "panier" :</p>
                 <img src="../assets/img/table.png" alt="table">
-                <p>Quel colonne permet d'identifier le produit ?</p>
+                <p>Quelle colonne permet d'identifier le produit ?</p>
                 <div class="possibilities">
                     <input type="radio" name="answer_2" id="answer_2-1" onclick="nextPart()">
                     <label for="answer_2-1">id</label>
@@ -110,11 +110,11 @@
                 </div>
             </div>
             <div class="part hidden" id="4">
-                <p>C'est en effet la colonne <span class="extensions">pd_id</span> qui permet l'identification du produit. Par aileur, cet élement permet de retrouver la produit dans une autre table (produits).</p>
-                <p>Il est temps maintenant d'introduire la notion de clef <strong>primaire</strong> et de clef <strong>etrangère</strong></p>
+                <p>C'est en effet la colonne <span class="extensions">pd_id</span> qui permet l'identification du produit. Par ailleurs, cet élément permet de retrouver le produit dans une autre table (produits).</p>
+                <p>Il est temps maintenant d'introduire la notion de clé <strong>primaire</strong> et de clé <strong>étrangère</strong></p>
                 <div class="tool_box question" id="quest_1" data-answer="1">
                     <div class="header">
-                        <div class="order">Quelle pourrait-être la clef primaire ici ?</div>
+                        <div class="order">Quelle pourrait être la clé primaire ici ?</div>
                     </div>
                     <div class="body" id="body_quest_1">
                         <input type="radio" name="answer_3" id="answer_3-1" onclick="showExplanation('quest_1')">
@@ -134,22 +134,22 @@
                         </label>
                     </div>
                     <div class="explanation hidden" id="explanation_quest_1">
-                        <p>Une clef primaire est unique, contrairement à une clef extrangère qui peut ne pas l'être.</p>
-                        <p>Une clef extrangère provient d'une autre table où celle-ci est unique. Ainsi la clef <span class="extensions">user_id</span> est unique dans la table "utilisateur".</p>
+                        <p>Une clé primaire est unique, contrairement à une clé étrangère qui peut ne pas l'être.</p>
+                        <p>Une clé étrangère provient d'une autre table où celle-ci est unique. Ainsi la clé <span class="extensions">user_id</span> est unique dans la table "utilisateur".</p>
                         <div class="btn" onclick="hideExplanation('quest_1')">Suivant</div>
                     </div>
                 </div>
             </div>
             <div class="part hidden" id="5">
-                <p>S'en est terminé, passons maintenant à la suite avec le section : "Comment construire une base de donnée ?"</p>
+                <p>C'en est terminé, passons maintenant à la suite avec la section : "Comment construire une base de données ?"</p>
                 <div class="btn" onclick="nextSection(2)">Suivant</div>
             </div>
         </section>
         <section class="">
             <img src="../assets/img/levels-app-development-with-ux-slash-ui-design.png" class="img">
             <div class="title">En somme ...</div>
-            <div class="desc">Les bases de données nous entourent et permette le bon fonctionnement d'internet.</div>
-            <div class="desc">Il n'est pas compliqué de les comprendre, et l'on peut aisement les visuasliser sous forme de tableaux.</div>
+            <div class="desc">Les bases de données nous entourent et permettent le bon fonctionnement d'internet.</div>
+            <div class="desc">Il n'est pas compliqué de les comprendre, et l'on peut aisément les visualiser sous forme de tableaux.</div>
             <div class="btn" onclick="finishLesson(1)">Terminer</div>
         </section>
     </main>

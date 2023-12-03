@@ -37,15 +37,176 @@
         <section class="">
             <div class="part">
                 <h1>La gestion</h1>
-
-
+                <p>Nous venons de voir comment créer une base de données, maintenant passons à l'étape du remplissage de la base.</p>
+                <p>Créée une base de donnée est assez simple grâce au language SQL, insérer des données l'est tout aussi.</p>
+                <p>Voici un exemple d'insertion dans une base de donnée</p>
+                <div class="tool_box sql" id="sql_3">
+                    <div class="header">
+                        <div class="order">Exécutez la ligne suivante</div>
+                    </div>
+                    <div class="body">
+                        <div class="sql_editor">
+                            <textarea class="sql_input" rows="10" cols="50" placeholder="Saisissez votre code SQL ici..." oninput="embellish(this)" spellcheck="false">INSERT INTO utilisateurs SET nom="Denis", email="denis@gmail.com", mdp="azerty123", anniv="2000-12-07"</textarea>
+                            <div class="sql_output"><span class="keyword">INSERT</span><span class="string"> </span><span class="keyword">INTO</span><span class="string"> </span><span class="string">utilisateurs</span><span class="string"> </span><span class="keyword">SET</span>
+                                <span class="string"> </span><span class="string">nom</span><span class="operator">="</span><span class="string">Denis</span><span class="operator">", </span><br/><span class="string">email</span><span class="operator">="</span>
+                                <span class="string">denis</span>
+                                <span class="string">@</span><span class="string">gmail</span><span class="operator">.</span><span class="string">com</span><span class="operator">", </span><span class="string">mdp</span><span class="operator">="</span>
+                                <span class="string">azerty123</span><span class="operator">", </span><br/><span class="string">anniv</span><span class="operator">="</span><span class="number">2000</span><span class="string">-</span><span class="number">12</span>
+                                <span class="string">-</span>
+                                <span class="number">07</span><span class="operator">"</span>
+                            </div>
+                        </div>
+                        <div class="btn" onclick="thirdStep('sql_3')">
+                            Exécuter
+                        </div>
+                        <div class="output_error errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="part hidden" id="2">
+                <p>Voilà, nous venons d'insérer une ligne dans notre base de données, mais comment faire pour supprimer un éventuel utilisateur ?</p>
+                <p>Quel élément est par ailleurs essentiel pour supprimer un utilisateur ?</p>
+                <div class="possibilities">
+                    <input type="radio" name="answer_2" id="answer-1" onclick="nextPart()">
+                    <label for="answer-1">L'ID</label>
+                    <input type="radio" name="answer_2" id="answer-2" onclick="nextPart()">
+                    <label for="answer-2">Le nom</label>
+                    <input type="radio" name="answer_2" id="answer-3" onclick="nextPart()">
+                    <label for="answer-3">La date de naissance</label>
+                </div>
+            </div>
+            <div class="part hidden" id="3">
+                <p><span class="extensions">id</span> était la bonne réponse. Sans celui-ci, il est impossible de différencier deux utilisateurs ayant le même nom ou la même date de naissance</p>
+                <p>Déterminons maintenant comment supprimer l'utilisateur que l'on vient d'ajouter.</p>
+                <div class="tool_box question" id="quest_2" data-answer="1">
+                    <div class="header">
+                        <div class="order">Quelle pourrait être la bonne commande ici ?</div>
+                    </div>
+                    <div class="body" id="body_quest_2">
+                        <input type="radio" name="answer_2" id="answer_2-1" onclick="showExplanation('quest_2')">
+                        <label for="answer_2-1">
+                                            <div class="radio"></div>
+                                            <div class="txt"><div class="code_container"><span class="keyword">DELETE</span><span class="string"> * </span><span class="keyword">FROM</span><span class="string"> </span><span class="string">utilisateurs</span><span class="string"> </span><span class="keyword">WHERE</span><span class="string"> </span><span class="string">id</span><span class="operator"> = "</span><span class="number">1</span><span class="operator">"</span></div></div>
+                                        </label>
+                        <input type="radio" name="answer_2" id="answer_2-2" onclick="showExplanation('quest_2')">
+                        <label for="answer_2-2">
+                                            <div class="radio"></div>
+                                            <div class="txt"><div class="code_container"><span class="keyword">DELETE</span><span class="string"> </span><span class="keyword">FROM</span><span class="operator"> "</span><span class="string">utilisateurs</span><span class="operator">" </span>
+                                                <span class="keyword">WHERE</span>
+                                                <span class="operator"> "</span><span class="string">id</span><span class="operator">" = </span><span class="number">1</span></div></div>
+                                        </label>
+                        <input type="radio" name="answer_2" id="answer_2-3" onclick="showExplanation('quest_2')">
+                        <label for="answer_2-3">
+                                            <div class="radio"></div>
+                                            <div class="txt"><div class="code_container"><span class="keyword">DELETE</span><span class="string"> </span><span class="string">id</span><span class="operator">="</span><span class="number">1</span><span class="operator">" </span><span class="keyword">FROM</span><span class="string"> </span><span class="string">utilisateurs</span></div></div>
+                                        </label>
+                    </div>
+                    <div class="explanation hidden" id="explanation_quest_2">
+                        <p>La bonne réponse était la deuxième</p>
+                        <div class="code_container"><span class="keyword">DELETE</span><span class="string"> </span><span class="keyword">FROM</span><span class="operator"> "</span><span class="string">utilisateurs</span><span class="operator">" </span>
+                            <span class="keyword">WHERE</span>
+                            <span class="operator"> "</span><span class="string">id</span><span class="operator">" = </span><span class="number">1</span></div>
+                        <div class="btn" onclick="hideExplanation('quest_2')">Suivant</div>
+                    </div>
+                </div>
+            </div>
+            <div class="part hidden" id="4">
+                <p>A vous de jouer !</p>
+                <p>Modifiez l'utilisateur (<span class="extensions">ID:2</span>). Vous devez changer son nom en le renommant <strong>Bernard</strong>.</p>
+                <p>Voici la base de données :</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>nom</th>
+                            <th>email</th>
+                            <th>mdp</th>
+                            <th>anniv</th>
+                            <th>date_creation</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_structure_1">
+                        <tr>
+                            <td>1</td>
+                            <td>Denis</td>
+                            <td>denis@gmail.com</td>
+                            <td>azerty123</td>
+                            <td>2000-12-07</td>
+                            <td>2023-12-07 12:00:00</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Jean</td>
+                            <td>jean@gmail.com</td>
+                            <td>123456789</td>
+                            <td>1999-01-21</td>
+                            <td>2023-12-07 02:52:54</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Marie</td>
+                            <td>marie@gmail.com</td>
+                            <td>mdp</td>
+                            <td>2001-05-12</td>
+                            <td>2023-12-07 17:25:37</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Bertrand</td>
+                            <td>bertrand@gmail.com</td>
+                            <td>motdepasse</td>
+                            <td>1956-09-30</td>
+                            <td>2023-12-07 18:22:34</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Utilisez la syntaxe : <span class="extensions">UPDATE nom_db SET colonne="valeur" WHERE colonne="valeur"</span></p>
+                <div class="tool_box sql" id="sql_4">
+                    <div class="header">
+                        <div class="order">Exécutez la ligne suivante</div>
+                    </div>
+                    <div class="body">
+                        <div class="sql_editor">
+                            <textarea class="sql_input" rows="10" cols="50" placeholder="Saisissez votre code SQL ici..." oninput="embellish(this)" spellcheck="false"></textarea>
+                            <div class="sql_output"></div>
+                        </div>
+                        <div class="btn" onclick="fourthStep('sql_4')">
+                            Exécuter
+                        </div>
+                        <div class="output_error errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="part hidden" id="5">
+                <p>Bravo, vous venez de modifier votre première ligne dans notre base de données !</p>
+                <p>La voici : </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>nom</th>
+                            <th>email</th>
+                            <th>mdp</th>
+                            <th>anniv</th>
+                            <th>date_creation</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_structure_2"></tbody>
+                </table>
+                <p>Maintenant, vous pouvez continuer notre cours et savoir comment afficher les données de cette base de données !</p>
+                <div class="btn" onclick="nextSection(2)">Continuer</div>
+            </div>
         </section>
         <section class="">
             <img src="../assets/img/levels-code-1.png" class="img">
             <div class="title">En somme ...</div>
-            <div class="desc"></div>
-            <div class="desc"></div>
-            <div class="btn" onclick="finishLesson(2)">Terminer</div>
+            <div class="desc">Gérer une base de données n'est pas plus compliqué que d'en créer une. Il ne vous faut connaître que les instructions :</div>
+            <ul>
+                <li class="extensions">INSERT INTO</li>
+                <li class="extensions">DELETE FROM</li>
+                <li class="extensions">UPDATE</li>
+            </ul>
+            <div class="btn" onclick="finishLesson(3)">Terminer</div>
         </section>
     </main>
     <script src="../assets/js/lessonroot.js"></script>
