@@ -139,22 +139,22 @@
                         <input type="radio" name="answer_2" id="answer_2-1" onclick="showExplanation('quest_2')">
                         <label for="answer_2-1">
                             <div class="radio"></div>
-                            <div class="txt"><div class="code_container"></div></div>
+                            <div class="txt"><div class="code_container"><span class="string">COUNT</span><span class="string"> * </span><span class="keyword">FROM</span><span class="string"> </span><span class="string">utilisateurs</span></div></div>
                         </label>
                         <input type="radio" name="answer_2" id="answer_2-2" onclick="showExplanation('quest_2')">
                         <label for="answer_2-2">
                             <div class="radio"></div>
-                            <div class="txt"><div class="code_container"></div></div>
+                            <div class="txt"><div class="code_container"><span class="keyword">SELECT</span><span class="string"> </span><span class="string">COUNT</span><span class="operator">(*) </span><span class="keyword">FROM</span><span class="string"> </span><span class="string">utilisateurs</span></div></div>
                         </label>
                         <input type="radio" name="answer_2" id="answer_2-3" onclick="showExplanation('quest_2')">
                         <label for="answer_2-3">
                             <div class="radio"></div>
-                            <div class="txt"><div class="code_container"></div></div>
+                            <div class="txt"><div class="code_container"><span class="keyword">SELECT</span><span class="string"> * </span><span class="keyword">FROM</span><span class="string"> </span><span class="string">utilisteur</span><span class="string"> </span><span class="string">COUNT</span><span class="operator">(*)</span></div></div>
                         </label>
                     </div>
                     <div class="explanation hidden" id="explanation_quest_2">
                         <p>La bonne réponse était la deuxième</p>
-                        <div class="code_container"></div>
+                        <div class="code_container"><span class="keyword">SELECT</span><span class="string"> </span><span class="string">COUNT</span><span class="operator">(*) </span><span class="keyword">FROM</span><span class="string"> </span><span class="string">utilisateurs</span></div>
                         <div class="btn" onclick="hideExplanation('quest_2')">Suivant</div>
                     </div>
                 </div>
@@ -163,9 +163,8 @@
                 <p>Pour terminer ce parcours, revenons au tout début.</p>
                 <p>Nous vous avions présenté un très simple site de e-commerce. Maintenant, grâce à notre base de donnée, le voici fonctionnel.</p>
                 <div class="tool_box website">
-                    <div class="body">
-                        <div class="btn" onclick="window.location.href = '../website'">Accéder au site</div>
-                    </div>
+                    <div class="header"></div>
+                    <div class="body"></div>
                 </div>
                 <div class="btn" onclick="finishLesson(4)">Terminer</div>
             </div>
