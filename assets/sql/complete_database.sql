@@ -62,16 +62,16 @@ INSERT INTO produits (nom, description, prix) VALUES
 -- Create the 'panier' table to store user's shopping cart information
 CREATE TABLE panier (
   id INT NOT NULL AUTO_INCREMENT, 
-  utilisateurs_id INT NOT NULL,
+  utilisateur_id INT NOT NULL,
   produit_id INT NOT NULL,
   qt INT NOT NULL,
   PRIMARY KEY (id), 
-  FOREIGN KEY (utilisateurs_id) REFERENCES utilisateurs(id), 
+  FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id), 
   FOREIGN KEY(produit_id) REFERENCES produits(id)
 );
 
 -- Insert sample data into the 'panier' table
-INSERT INTO panier (utilisateurs_id, produit_id, qt) VALUES
+INSERT INTO panier (utilisateur_id, produit_id, qt) VALUES
   (1, 1, 2),
   (1, 3, 1),
   (2, 5, 3),
@@ -84,16 +84,16 @@ INSERT INTO panier (utilisateurs_id, produit_id, qt) VALUES
 -- Create the 'commandes' table to store user's orders information
 CREATE TABLE commandes (
   id INT NOT NULL AUTO_INCREMENT,
-  utilisateurs_id INT NOT NULL,
+  utilisateur_id INT NOT NULL,
   livraison VARCHAR(100) NOT NULL,
   total FLOAT NOT NULL,
   date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
-  FOREIGN KEY (utilisateurs_id) REFERENCES utilisateurs(id)
+  FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id)
 );
 
 -- Insert sample data into the 'commandes' table
-INSERT INTO commandes (utilisateurs_id, livraison, total) VALUES
+INSERT INTO commandes (utilisateur_id, livraison, total) VALUES
   (1, 'Retrait en magasin', 199.99),
   (2, 'Retrait en magasin', 459.98),
   (3, 'Retrait en magasin', 799.97),

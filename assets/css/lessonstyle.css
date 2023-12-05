@@ -157,6 +157,7 @@ p {
 
 .tool_box {
     width: 100%;
+    box-sizing: border-box;
     background: white;
     padding: 10px;
     border-radius: 10px;
@@ -451,4 +452,64 @@ td {
     padding-top: 10px;
     padding-bottom: 10px;
     border-top: 1px solid #ededed;
+}
+
+.tool_box.website {
+    height: 500px;
+    overflow: auto;
+}
+
+.tool_box.website .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.tool_box.website .page_links {
+    display: flex;
+    width: 120px;
+    gap: 5px;
+    justify-content: end;
+}
+
+.tool_box.website .page_links .page_link img {
+    width: 25px;
+    height: 25px;
+}
+
+.tool_box.website .body {
+    height: calc(100% - 50px);
+}
+
+.tool_box.website .connexion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.tool_box.website .connexion form {
+    width: 300px;
+    margin: auto;
+}
+
+.tool_box.website .connexion form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+    background: #ededed;
+}
+
+.tool_box.website .connexion form input[type="submit"] {
+    background: #333;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tool_box.website .connexion form input:focus {
+    outline: 1px solid #333;
 }

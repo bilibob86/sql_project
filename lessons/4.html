@@ -162,9 +162,43 @@
             <div class="part hidden" id="5">
                 <p>Pour terminer ce parcours, revenons au tout début.</p>
                 <p>Nous vous avions présenté un très simple site de e-commerce. Maintenant, grâce à notre base de donnée, le voici fonctionnel.</p>
-                <div class="tool_box website">
-                    <div class="header"></div>
-                    <div class="body"></div>
+                <div class="tool_box website" id="website_emulator">
+                    <div class="header">
+                        <div class="page_title">Connexion</div>
+                        <div class="page_links">
+                            <div class="page_link">
+                                <img src="../assets/icons/icons8-boutique-en-ligne-30.png">
+                            </div>
+                            <div class="page_link">
+                                <img src="../assets/icons/icons8-produit-30.png">
+                            </div>
+                            <div class="page_link">
+                                <img src="../assets/icons/icons8-caddie-30-b.png">
+                            </div>
+                            <div class="page_link">
+                                <img src="../assets/icons/icons8-utilisateur-30.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body">
+                        <div class="connexion page">
+                            <form method="POST" id="connexion_form">
+                                <div class="input_container">
+                                    <label for="email">Email</label><br/>
+                                    <input type="email" name="email" id="email" placeholder="Email">
+                                </div>
+                                <div class="input_container">
+                                    <label for="password">Mot de passe</label><br/>
+                                    <input type="password" name="password" id="password" placeholder="Mot de passe">
+                                </div>
+                                <input type="submit" class="btn" value="Se connecter">
+                            </form>
+                        </div>
+                        <div class="products page hidden"></div>
+                        <div class="cart page hidden"></div>
+                        <div class="orders page hidden"></div>
+                        <div class="account page hidden"></div>
+                    </div>
                 </div>
                 <div class="btn" onclick="finishLesson(4)">Terminer</div>
             </div>
@@ -175,12 +209,15 @@
                 <div>
                     <div class="desc"></div>
                     <div class="btn" onclick="finishLesson(4)">Terminer</div>
+                </div>
+            </div>
         </section>
     </main>
     <script src="../assets/js/lessonroot.js"></script>
     <script src="../assets/js/questions.js"></script>
     <script src="../assets/js/sql_editor.js"></script>
     <script src="../assets/js/sql_exe.js"></script>
+    <script src="../assets/js/website_emulator.js"></script>
 </body>
 
 </html>

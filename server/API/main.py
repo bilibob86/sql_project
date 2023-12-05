@@ -28,10 +28,12 @@ def root():
             cursor = conn.cursor()
             cursor.execute("SHOW TABLES")
             tables = cursor.fetchall()
+            if len(tables) == 5:
+                tables = [["contenu"], ["commandes"], ["panier"], ["produits"], ["utilisateurs"]]
             if len(tables) != 0:
                 for table in tables:
+                    print("Dropping table " + str(table[0]))
                     cursor.execute("DROP TABLE " + str(table[0]))
-
         return jsonify({
             "code": 200,
             "message": "Database ready"
@@ -39,7 +41,8 @@ def root():
     except Error as e:
         return jsonify({
             "code": 500,
-            "message": "Internal server error"
+            "message": "Internal server error",
+            "result": str(e)
         })
 
 @app.route('/execute', methods=['POST'])

@@ -157,7 +157,9 @@ async function fifthStep(el) {
             } else {
                 err.innerHTML = "Error: " + out.result;
             }
-        } else {}
+        } else {
+            console.log(data);
+        }
     } catch (error) {
         console.log(error);
     }
