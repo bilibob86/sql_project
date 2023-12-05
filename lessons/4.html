@@ -129,8 +129,8 @@
 
                     </tbody>
                 </table>
-                <p>Avant de terminer ce cours, saviez vous qu'il est possible de compter le nombre d'utilisateurs en SQL.</p>
-                <p>Pour ce faire, nous pouvons utiliser les fonction <strong>d'aggrégation</strong>.</p>
+                <p>Avant de terminer ce cours, saviez-vous qu'il est possible de compter le nombre d'utilisateurs en SQL ?</p>
+                <p>Pour ce faire, nous pouvons utiliser les fonctions d'agrégation.</p>
                 <div class="tool_box question" id="quest_2" data-answer="1">
                     <div class="header">
                         <div class="order">Quelle pourrait être la bonne commande ici ?</div>
@@ -138,19 +138,19 @@
                     <div class="body" id="body_quest_2">
                         <input type="radio" name="answer_2" id="answer_2-1" onclick="showExplanation('quest_2')">
                         <label for="answer_2-1">
-                            <div class="radio"></div>
-                            <div class="txt"><div class="code_container"><span class="string">COUNT</span><span class="string"> * </span><span class="keyword">FROM</span><span class="string"> </span><span class="string">utilisateurs</span></div></div>
-                        </label>
+                                                        <div class="radio"></div>
+                                                        <div class="txt"><div class="code_container"><span class="string">COUNT</span><span class="string"> * </span><span class="keyword">FROM</span><span class="string"> </span><span class="string">utilisateurs</span></div></div>
+                                                    </label>
                         <input type="radio" name="answer_2" id="answer_2-2" onclick="showExplanation('quest_2')">
                         <label for="answer_2-2">
-                            <div class="radio"></div>
-                            <div class="txt"><div class="code_container"><span class="keyword">SELECT</span><span class="string"> </span><span class="string">COUNT</span><span class="operator">(*) </span><span class="keyword">FROM</span><span class="string"> </span><span class="string">utilisateurs</span></div></div>
-                        </label>
+                                                        <div class="radio"></div>
+                                                        <div class="txt"><div class="code_container"><span class="keyword">SELECT</span><span class="string"> </span><span class="string">COUNT</span><span class="operator">(*) </span><span class="keyword">FROM</span><span class="string"> </span><span class="string">utilisateurs</span></div></div>
+                                                    </label>
                         <input type="radio" name="answer_2" id="answer_2-3" onclick="showExplanation('quest_2')">
                         <label for="answer_2-3">
-                            <div class="radio"></div>
-                            <div class="txt"><div class="code_container"><span class="keyword">SELECT</span><span class="string"> * </span><span class="keyword">FROM</span><span class="string"> </span><span class="string">utilisteur</span><span class="string"> </span><span class="string">COUNT</span><span class="operator">(*)</span></div></div>
-                        </label>
+                                                        <div class="radio"></div>
+                                                        <div class="txt"><div class="code_container"><span class="keyword">SELECT</span><span class="string"> * </span><span class="keyword">FROM</span><span class="string"> </span><span class="string">utilisateur</span><span class="string"> </span><span class="string">COUNT</span><span class="operator">(*)</span></div></div>
+                                                    </label>
                     </div>
                     <div class="explanation hidden" id="explanation_quest_2">
                         <p>La bonne réponse était la deuxième</p>
@@ -161,19 +161,19 @@
             </div>
             <div class="part hidden" id="5">
                 <p>Pour terminer ce parcours, revenons au tout début.</p>
-                <p>Nous vous avions présenté un très simple site de e-commerce. Maintenant, grâce à notre base de donnée, le voici fonctionnel.</p>
+                <p>Nous vous avions présenté un très simple site de e-commerce. Maintenant, grâce à notre base de données, le voici fonctionnel.</p>
                 <div class="tool_box website" id="website_emulator">
                     <div class="header">
-                        <div class="page_title">Connexion</div>
+                        <div class="page_title" id="page_title">Marketplace</div>
                         <div class="page_links">
                             <div class="page_link">
                                 <img src="../assets/icons/icons8-boutique-en-ligne-30.png">
                             </div>
                             <div class="page_link">
-                                <img src="../assets/icons/icons8-produit-30.png">
+                                <img src="../assets/icons/icons8-caddie-30-b.png">
                             </div>
                             <div class="page_link">
-                                <img src="../assets/icons/icons8-caddie-30-b.png">
+                                <img src="../assets/icons/icons8-produit-30.png">
                             </div>
                             <div class="page_link">
                                 <img src="../assets/icons/icons8-utilisateur-30.png">
@@ -185,31 +185,48 @@
                             <form method="POST" id="connexion_form">
                                 <div class="input_container">
                                     <label for="email">Email</label><br/>
-                                    <input type="email" name="email" id="email" placeholder="Email">
+                                    <input type="email" name="email" id="email" placeholder="Email" value="john.doe@example.com">
                                 </div>
                                 <div class="input_container">
                                     <label for="password">Mot de passe</label><br/>
-                                    <input type="password" name="password" id="password" placeholder="Mot de passe">
+                                    <input type="password" name="password" id="password" placeholder="Mot de passe" value="motdepasse1">
                                 </div>
                                 <input type="submit" class="btn" value="Se connecter">
                             </form>
                         </div>
-                        <div class="products page hidden"></div>
-                        <div class="cart page hidden"></div>
-                        <div class="orders page hidden"></div>
-                        <div class="account page hidden"></div>
+                        <div class="products page hidden">
+                            <p class="title">Nos produits</p>
+                        </div>
+                        <div class="cart page hidden">
+                            <p class="title">Panier</p>
+                            <div class="cart_container">
+                                <div class="cart_products">
+                                    Votre panier est vide
+                                </div>
+                                <div class="cart_total">
+                                    <p style="font-weight: bold;">Total</p>
+                                    <div class="cart_total_amount"></div>
+                                    <div class="cart_total_delivery">Retrait en magasin</div>
+                                    <div class="btn" id="to_order">Commander</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="orders page hidden">
+                            <p class="title" style="margin-bottom: 20px;">Commandes</p>
+                            <div class="orders_list"></div>
+                        </div>
+                        <div class="account page hidden">
+                            <p class="title">Compte</p>
+                            <p>Nom : <span class="account_name"></span></p>
+                            <p>Email : <span class="account_email"></span></p>
+                            <p>Date de naissance : <span class="account_birthday"></span></p>
+                            <p>Date de création : <span class="account_creation_date"></span></p>
+                        </div>
                     </div>
                 </div>
+                <p>Maintenant les bases de données n'ont plus de secret pour vous !</p>
+                <p>Merci d'avoir suivi ce cours !</p>
                 <div class="btn" onclick="finishLesson(4)">Terminer</div>
-            </div>
-        </section>
-        <section class="">
-            <img src="../assets/img/levels-code-1.png" class="img">
-            <div class="title">En somme
-                <div>
-                    <div class="desc"></div>
-                    <div class="btn" onclick="finishLesson(4)">Terminer</div>
-                </div>
             </div>
         </section>
     </main>
