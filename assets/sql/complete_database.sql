@@ -74,12 +74,12 @@ CREATE TABLE panier (
 INSERT INTO panier (utilisateur_id, produit_id, qt) VALUES
   (1, 1, 2),
   (1, 3, 1),
-  (2, 5, 3),
-  (3, 7, 1),
+  (13, 5, 3),
+  (7, 7, 1),
   (3, 10, 2),
-  (4, 12, 1),
-  (4, 15, 1),
-  (5, 18, 2);
+  (2, 12, 1),
+  (11, 15, 1),
+  (10, 18, 2);
 
 -- Create the 'commandes' table to store user's orders information
 CREATE TABLE commandes (
@@ -95,9 +95,9 @@ CREATE TABLE commandes (
 -- Insert sample data into the 'commandes' table
 INSERT INTO commandes (utilisateur_id, livraison, total) VALUES
   (1, 'Retrait en magasin', 199.99),
-  (2, 'Retrait en magasin', 459.98),
-  (3, 'Retrait en magasin', 799.97),
-  (4, 'Retrait en magasin', 359.99);
+  (4, 'Retrait en magasin', 459.98),
+  (15, 'Retrait en magasin', 799.97),
+  (12, 'Retrait en magasin', 359.99);
 
 -- Create the 'contenu' table to store the contents of each order
 CREATE TABLE contenu (
@@ -114,11 +114,11 @@ CREATE TABLE contenu (
 INSERT INTO contenu (commande_id, produit_id, qt) VALUES
   (1, 1, 1),
   (1, 3, 2),
-  (2, 5, 2),
-  (2, 7, 1),
-  (2, 9, 3),
-  (3, 11, 1),
-  (3, 13, 2),
-  (3, 15, 1),
-  (4, 17, 3),
-  (4, 19, 2);
+  (4, 5, 2),
+  (4, 7, 1),
+  (4, 9, 3),
+  (15, 11, 1),
+  (15, 13, 2),
+  (15, 15, 1),
+  (12, 17, 3),
+  (12, 19, 2);
