@@ -5,26 +5,39 @@ const pages = [
     mainBox.getElementsByClassName("connexion")[0],
     mainBox.getElementsByClassName("products")[0],
     mainBox.getElementsByClassName("cart")[0],
-    mainBox.getElementsByClassName("orders")[0],
-    mainBox.getElementsByClassName("account")[0]
+    mainBox.getElementsByClassName("orders")[0]
 ]
 const pagesNames = [
     "connexion",
     "products",
     "cart",
-    "orders",
-    "account"
+    "orders"
 ]
 const connexionForm = document.getElementById("connexion_form");
 
+/**
+ * @class userSession - User session class
+ * @property {number} userId - User id
+ * @property {boolean} isConnected - User connection status
+ * @method connexion - User connection method
+ * @method addToCart - Add a product to the cart
+ * @method removeFromCart - Remove a product from the cart
+ * @method getCart - Get the cart
+ * @method getTotal - Get the total price of the cart
+ * @method order - Order the cart
+ * @method getOrders - Get the orders
+ * @method getProducts - Get the products
+ * @returns {userSession} - User session object
+ * 
+ */
 class userSession {
     constructor() {
         this.userId = null;
         this.isConnected = false;
     }
     async connexion(username, password) {
-        username = username.replace(/'/g, "''");
-        password = password.replace(/'/g, "''");
+        username = username.replace(/'/g, "''"); // SQL injection protection
+        password = password.replace(/'/g, "''"); // SQL injection protection
         let request = await sqlRequest("SELECT * FROM utilisateurs WHERE email = '" + username + "' AND mdp = '" + password + "'");
         if (request) {
             if (request.code == 200) {
@@ -35,18 +48,6 @@ class userSession {
                 } else {
                     return 404;
                 }
-            } else {
-                return 500;
-            }
-        } else {
-            return 500;
-        }
-    }
-    async accountData() {
-        let request = await sqlRequest("SELECT * FROM utilisateurs WHERE id = " + this.userId);
-        if (request) {
-            if (request.code == 200) {
-                return request.result[1];
             } else {
                 return 500;
             }
@@ -181,6 +182,7 @@ connexionForm.addEventListener("submit", async function(e) {
     if (connexion == 200) {
         pages[0].classList.add("hidden");
         pages[1].classList.remove("hidden");
+        updateProducts();
     } else if (connexion == 404) {
         alert("Identifiants incorrects");
     } else if (connexion == 500) {
@@ -195,61 +197,63 @@ for (let i = 0; i < pageLinks.length; i++) {
                 pages[j].classList.add("hidden");
             }
             pages[i + 1].classList.remove("hidden");
-            if (i == 1) {
+            if (i == 0) {
+                updateProducts();
+            } else if (i == 1) {
                 updateCart();
             } else if (i == 2) {
                 updateOrders();
-            } else if (i == 3) {
-                updateAccount();
             }
         }
     });
 }
 
-session.getProducts().then(function(products) {
-    let productsList = mainBox.getElementsByClassName("products")[0];
-    for (let i = 0; i < products.length; i++) {
-        let product = document.createElement("div");
-        product.classList.add("product");
+async function updateProducts() {
+    session.getProducts().then(function(products) {
+        let productsList = mainBox.getElementsByClassName("products")[0];
+        for (let i = 0; i < products.length; i++) {
+            let product = document.createElement("div");
+            product.classList.add("product");
 
-        let productImg = document.createElement("div");
-        productImg.classList.add("product_img");
-        let img = document.createElement("img");
-        img.src = `../assets/img/website_emulator/${products[i][0]}.webp`;
-        productImg.appendChild(img);
-        product.appendChild(productImg);
+            let productImg = document.createElement("div");
+            productImg.classList.add("product_img");
+            let img = document.createElement("img");
+            img.src = `../assets/img/website_emulator/${products[i][0]}.webp`;
+            productImg.appendChild(img);
+            product.appendChild(productImg);
 
-        let productDesc = document.createElement("div");
-        productDesc.classList.add("product_desc");
-        let productName = document.createElement("div");
-        productName.classList.add("product_name");
-        productName.innerHTML = products[i][1];
-        let productPrice = document.createElement("div");
-        productPrice.classList.add("product_price");
-        productPrice.innerHTML = `${products[i][3]}€`;
-        productDesc.appendChild(productName);
-        productDesc.appendChild(productPrice);
-        product.appendChild(productDesc);
+            let productDesc = document.createElement("div");
+            productDesc.classList.add("product_desc");
+            let productName = document.createElement("div");
+            productName.classList.add("product_name");
+            productName.innerHTML = products[i][1];
+            let productPrice = document.createElement("div");
+            productPrice.classList.add("product_price");
+            productPrice.innerHTML = `${products[i][3]}€`;
+            productDesc.appendChild(productName);
+            productDesc.appendChild(productPrice);
+            product.appendChild(productDesc);
 
-        let addToCartBtn = document.createElement("div");
-        addToCartBtn.classList.add("product_add");
-        let cartImg = document.createElement("img");
-        cartImg.src = "../assets/icons/icons8-caddie-30.png";
-        addToCartBtn.appendChild(cartImg);
-        product.appendChild(addToCartBtn);
+            let addToCartBtn = document.createElement("div");
+            addToCartBtn.classList.add("product_add");
+            let cartImg = document.createElement("img");
+            cartImg.src = "../assets/icons/icons8-caddie-30.png";
+            addToCartBtn.appendChild(cartImg);
+            product.appendChild(addToCartBtn);
 
-        productsList.appendChild(product);
+            productsList.appendChild(product);
 
-        addToCartBtn.addEventListener("click", async function() {
-            let addToCart = await session.addToCart(products[i][0], 1);
-            if (addToCart == 200) {
-                alert("Produit ajouté au panier");
-            } else if (addToCart == 500) {
-                alert("Une erreur est survenue");
-            }
-        });
-    }
-});
+            addToCartBtn.addEventListener("click", async function() {
+                let addToCart = await session.addToCart(products[i][0], 1);
+                if (addToCart == 200) {
+                    alert("Produit ajouté au panier");
+                } else if (addToCart == 500) {
+                    alert("Une erreur est survenue");
+                }
+            });
+        }
+    });
+}
 
 async function updateCart() {
     let cart = await session.getCart();
@@ -391,16 +395,4 @@ async function updateOrders() {
         }
         order_id = orders[i][0][0][0];
     }
-}
-
-async function updateAccount() {
-    console.log(session.accountData());
-    let accountName = mainBox.getElementsByClassName("account_name")[0];
-    accountName.innerHTML = session.accountData()[0][1];
-    let accountEmail = mainBox.getElementsByClassName("account_email")[0];
-    accountEmail.innerHTML = session.accountData()[0][2];
-    let accountBirthday = mainBox.getElementsByClassName("account_birthday")[0];
-    accountBirthday.innerHTML = session.accountData()[0][4];
-    let accountCreation = mainBox.getElementsByClassName("account_creation_date")[0];
-    accountCreation.innerHTML = session.accountData()[0][5];
 }

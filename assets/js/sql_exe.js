@@ -1,3 +1,9 @@
+/**
+ * Executes the first step of the process.
+ * @param {string} el - The ID of the parent element.
+ * @returns {Promise<void>} - A promise that resolves when the step is completed.
+ */
+
 async function firstStep(el) {
     const request = await fetch('http://127.0.0.1:5000/root');
     const parent = document.getElementById(el);
@@ -31,6 +37,12 @@ async function firstStep(el) {
         console.log(error);
     }
 }
+
+/**
+ * Executes the second step of the process.
+ * @param {string} el - The ID of the parent element.
+ * @returns {Promise<void>} - A promise that resolves when the step is completed.
+ */
 
 async function secondStep(el) {
     const request = await fetch('http://127.0.0.1:5000/root');
@@ -66,6 +78,12 @@ async function secondStep(el) {
     }
 }
 
+/**
+ * Executes the third step of the process.
+ * @param {string} el - The ID of the parent element.
+ * @returns {Promise<void>} - A promise that resolves when the step is completed.
+ */
+
 async function thirdStep(el) {
     const request = await fetch('http://127.0.0.1:5000/root');
     const parent = document.getElementById(el);
@@ -86,6 +104,12 @@ async function thirdStep(el) {
         console.log(error);
     }
 }
+
+/**
+ * Executes the fourth step of the process.
+ * @param {string} el - The ID of the parent element.
+ * @returns {Promise<void>} - A promise that resolves when the step is completed.
+ */
 
 async function fourthStep(el) {
     const request = await fetch('http://127.0.0.1:5000/root');
@@ -128,6 +152,11 @@ async function fourthStep(el) {
     }
 }
 
+/**
+ * Executes the fifth step of the process.
+ * @param {string} el - The ID of the parent element.
+ * @returns {Promise<void>} - A promise that resolves when the step is completed.
+ */
 async function fifthStep(el) {
     const request = await fetch('http://127.0.0.1:5000/root');
     const parent = document.getElementById(el);
@@ -155,7 +184,7 @@ async function fifthStep(el) {
                     tableStructureHTML.appendChild(htmlTableBody);
                 }
             } else {
-                err.innerHTML = "Error: " + out.result;
+                err.innerHTML = "Error: " + lines.result;
             }
         } else {
             console.log(data);
@@ -165,6 +194,11 @@ async function fifthStep(el) {
     }
 }
 
+/**
+ * Executes the sixth step of the process.
+ * @param {string} el - The ID of the parent element.
+ * @returns {Promise<void>} - A promise that resolves when the step is completed.
+ */
 async function sixthStep(el) {
     const response = await fetch('http://127.0.0.1:5000/root');
     const completeDataBase = await fetch("../assets/sql/complete_database.sql");
@@ -176,7 +210,7 @@ async function sixthStep(el) {
             const rq = parent.getElementsByClassName('sql_input')[0].value;
             const err = parent.getElementsByClassName('output_error')[0];
 
-            // Execute SQL file
+            // Execute SQL file request by request to set up the database
             const sqlFile = await completeDataBase.text();
             const sqlFileLines = sqlFile.split(";");
             for (let i = 0; i < sqlFileLines.length; i++) {
@@ -205,6 +239,33 @@ async function sixthStep(el) {
     }
 }
 
+/**
+ * Executes a SQL request by sending it to the server.
+ * @param {Object} request - The SQL request to be executed.
+ * @returns {Promise} - A promise that resolves to the response data or false if an error occurs.
+ * @example
+ * const request = {
+ *    "request": "SELECT * FROM utilisateurs"
+ * };
+ * const response = await sqlRequest(request);
+ * console.log(response);
+ * // {
+ * //    "code": 200,
+ * //    "result": [
+ * //        [
+ * //            [
+ * //                "1",
+ * //                "Denis",
+ * //                "  denis@gmail",
+ * //                "azerty123",
+ * //                "2000-12-07",
+ * //                "2023-12-07 12:00:00"
+ * //            ],
+ * //            [...] // Other lines
+ * //        ]
+ * //    ]
+ * //}
+ */
 async function sqlRequest(request) {
     const response = await fetch('http://127.0.0.1:5000/execute', {
         method: 'POST',
@@ -215,7 +276,6 @@ async function sqlRequest(request) {
     });
     try {
         const data = await response.json();
-        console.log(data);
         return data;
     } catch (error) {
         return false;
