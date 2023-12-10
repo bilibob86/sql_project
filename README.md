@@ -31,13 +31,6 @@ Pour installer Flask-Cors, il faut utiliser la commande :
 pip install Flask-Cors
 ```
 
-### Installation de colorama
-
-Pour installer colorama, il faut utiliser la commande :
-```bash
-pip install colorama
-```
-
 ### Installation de mysql-connector-python
 
 Pour installer mysql-connector-python, il faut utiliser la commande :
